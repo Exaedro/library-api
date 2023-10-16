@@ -13,7 +13,7 @@ export default class BooksController {
         const { isbn } = req.params;
         const book = await BooksModel.getByIsbn(isbn);
         
-        if(book) return res.json();
+        if(book) return res.json(books);
         else res.status(404).json({ message: 'Not found' });
     }
 }
