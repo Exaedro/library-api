@@ -1,14 +1,7 @@
-import { Router } from 'express';
-import BooksController from '../controllers/books.js';
+import { Router } from "express";
+import BooksController from "../controllers/books.js";
 
 export const router = new Router();
 
-router.get('/library', (req, res) => {
-    const books = BooksController.getAll(req, res);
-    return books;
-});
-
-router.get('/library/:isbn', (req, res) => {
-    const book = BooksController.getByIsbn(req, res);
-    return book;
-});
+router.get("/library", (req, res) => BooksController.getAll(req, res)); // Obtener todos los libros
+router.get("/library/:isbn", (req, res) => BooksController.getByIsbn(req, res)); // Obtener libros por ISBN
